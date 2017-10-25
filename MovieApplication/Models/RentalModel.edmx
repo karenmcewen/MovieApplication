@@ -31,6 +31,7 @@
           <Property Name="CustomerID" Type="int" Nullable="false" />
           <Property Name="MovieID" Type="int" Nullable="false" />
           <Property Name="DateRented" Type="datetime" Nullable="false" />
+          <Property Name="DateDue" Type="datetime" />
         </EntityType>
         <Association Name="FK_Rentals_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
@@ -103,6 +104,7 @@
           <Property Name="DateRented" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Customer" Relationship="MoviesDbModel.FK_Rentals_Customers" FromRole="Rental" ToRole="Customer" />
           <NavigationProperty Name="Movy" Relationship="MoviesDbModel.FK_Rentals_Movies" FromRole="Rental" ToRole="Movy" />
+          <Property Name="DateDue" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="MoviesDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -170,6 +172,7 @@
           <EntitySetMapping Name="Rentals">
             <EntityTypeMapping TypeName="MoviesDbModel.Rental">
               <MappingFragment StoreEntitySet="Rentals">
+                <ScalarProperty Name="DateDue" ColumnName="DateDue" />
                 <ScalarProperty Name="RentalID" ColumnName="RentalID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="MovieID" ColumnName="MovieID" />

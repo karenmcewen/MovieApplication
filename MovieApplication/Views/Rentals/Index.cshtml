@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MovieApplication.Models.Rental>
 
 @{
-    ViewBag.Title = "Rentals";
+    ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("New Rental", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -15,15 +15,11 @@
             @Html.DisplayNameFor(model => model.DateRented)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.DateDue)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Customer.FirstName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Customer.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Customer.Phone)
-        </th>
-      
         <th>
             @Html.DisplayNameFor(model => model.Movy.Title)
         </th>
@@ -36,13 +32,10 @@
             @Html.DisplayFor(modelItem => item.DateRented)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.DateDue)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Customer.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Customer.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Customer.Phone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Movy.Title)

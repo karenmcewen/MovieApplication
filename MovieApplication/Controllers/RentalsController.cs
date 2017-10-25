@@ -49,7 +49,7 @@ namespace MovieApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalID,CustomerID,MovieID,DateRented")] Rental rental)
+        public ActionResult Create([Bind(Include = "RentalID,CustomerID,MovieID,DateRented,DateDue")] Rental rental)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace MovieApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalID,CustomerID,MovieID,DateRented")] Rental rental)
+        public ActionResult Edit([Bind(Include = "RentalID,CustomerID,MovieID,DateRented,DateDue")] Rental rental)
         {
             if (ModelState.IsValid)
             {
